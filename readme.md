@@ -16,7 +16,7 @@ composer require dillingham/nova-items-field
 
 ### Usage
 
-```
+```php
 use NovaItemsField\Items;
 ```
 ```php
