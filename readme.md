@@ -45,8 +45,13 @@ public $casts = [
 ];
 ```
 
-Also, if you want to use the array as a temporary variable:
-Make an [observer](https://nova.laravel.com/docs/1.0/resources/#resource-events) and unset the value & handle the array manually.
+Don't want to store the array?
+
+Use the array as a temporary variable
+
+- make an [observer](https://nova.laravel.com/docs/1.0/resources/#resource-events)
+- handle the array manually.
+- unset the array to avoid sql error
 
 ```php
 
