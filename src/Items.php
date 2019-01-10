@@ -12,7 +12,7 @@ class Items extends Field
     public $inputType = 'text';
     public $createButtonValue = "Add";
     public $deleteButtonValue = "x";
-    public $placeInputBefore = true;
+    public $listFirst = false;
 
     public function resolve($resource, $attribute = null)
     {
@@ -20,9 +20,9 @@ class Items extends Field
 
         $this->withMeta([
             'items' => $this->items,
+            'listFirst' => $this->listFirst,
             'inputType' => $this->inputType,
             'placeholder' => $this->placeholder,
-            'placeInputBefore' => $this->placeInputBefore,
             'createButtonValue' => $this->createButtonValue,
             'deleteButtonValue' => $this->deleteButtonValue,
         ]);
@@ -51,9 +51,9 @@ class Items extends Field
         return $this;
     }
 
-    public function placeInputBefore($placeInputBefore)
+    public function listFirst($listFirst = true)
     {
-        $this->placeInputBefore = $placeInputBefore;
+        $this->listFirst = $listFirst;
         
         return $this;
     }

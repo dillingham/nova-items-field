@@ -27,4 +27,13 @@ public $casts = [
 ];
 ```
 
+### Methods 
 
+| function | description | required | default |
+| - | - | - | - |
+| **values(array)** | add a model's array | Yes | -- |
+| **inputType(text)** | text, date, etc | No | "text" |
+| **placeholder(text)** | the new item input text | No | "Add a new item" |
+| **listFirst()**| move form after list  | No | false |
+| **deleteButtonValue(html)** | value for delete button | No | "x" |
+| **createButtonValue(html)** | value for create button | No | "Add" |

@@ -1,7 +1,7 @@
 <template>
     <default-field :field="field" :errors="errors">
         <template slot="field" class="nova-items-field">
-            <div class="nova-items-field-input-wrapper flex border border-40 p-4" v-if="field.placeInputBefore">
+            <div class="nova-items-field-input-wrapper flex border border-40 p-4" v-if="field.listFirst == false">
                 <input 
                     v-model="newItem"
                     :type="field.inputType"
@@ -26,7 +26,7 @@
                     />
                 </li>
             </ul>
-             <div class="nova-items-field-input-wrapper flex border border-40 p-4"  v-if="field.placeInputBefore == false">
+             <div class="nova-items-field-input-wrapper flex border border-40 p-4"  v-if="field.listFirst">
                 <input
                     v-model="newItem"
                     :type="field.inputType"
