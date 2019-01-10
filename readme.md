@@ -64,3 +64,9 @@ function saving($user)
     
     unset($user->emails);
 }
+```
+
+### Feature Todo
+
+- [ ] Laravel array validation
+- [ ] Sortable / draggable items
