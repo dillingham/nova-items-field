@@ -30,7 +30,7 @@ Items::make('Emails')->values($this->emails),
 | **values(array)** | add a model's array | Yes | -- |
 | **inputType(text)** | text, date, etc | No | "text" |
 | **placeholder(text)** | the new item input text | No | "Add a new item" |
-| **listFirst()**| move form after list  | No | false |
+| **listFirst()**| move form after the list  | No | false |
 | **deleteButtonValue(html)** | value for delete button | No | "x" |
 | **createButtonValue(html)** | value for create button | No | "Add" |
 
@@ -45,7 +45,7 @@ public $casts = [
 ];
 ```
 
-Don't want to store the array?
+**Don't want to store the array?**
 
 Use the array as a temporary variable
 
