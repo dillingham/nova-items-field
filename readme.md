@@ -23,14 +23,6 @@ use NovaItemsField\Items;
 Items::make('Emails')->values($this->emails),
 ```
 
-Be sure to cast `emails` to an array in your eloquent model.
-
-```php
-public $casts = [
-    'emails' => 'array'
-];
-```
-
 ### Methods 
 
 | function | description | required | default |
@@ -41,3 +33,29 @@ public $casts = [
 | **listFirst()**| move form after list  | No | false |
 | **deleteButtonValue(html)** | value for delete button | No | "x" |
 | **createButtonValue(html)** | value for create button | No | "Add" |
+
+### Sidenotes
+
+
+Be sure to cast `emails` to an array in your eloquent model.
+
+```php
+public $casts = [
+    'emails' => 'array'
+];
+```
+
+Also, if you want to use the array as a temporary variable:
+Make an [observer](https://nova.laravel.com/docs/1.0/resources/#resource-events) and unset the value & handle the array manually.
+
+```php
+
+function saving($user)
+{
+    foreach($user->emails as $email)
+    {
+        //
+    }
+    
+    unset($user->emails);
+}
