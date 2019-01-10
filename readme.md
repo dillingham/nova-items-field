@@ -26,7 +26,6 @@ Items::make('Emails')->values($this->emails),
 Be sure to cast `emails` to an array in your eloquent model.
 
 ```php
-
 public $casts = [
     'emails' => 'array'
 ];
