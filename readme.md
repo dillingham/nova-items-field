@@ -18,36 +18,38 @@ composer require dillingham/nova-items-field
 use NovaItemsField\Items;
 ```
 ```php
-Items::make('Emails'),
+function fields() {
+    return [
+        Items::make('Emails'),
+    ]
+}
 ```
-Be sure to cast the property as an array on your eloquent model
+and be sure to cast the property as an array on your eloquent model
 ```php
 public $casts = [
     'emails' => 'array'
 ];
 ```
-
-### Methods 
-
-| function | description | required | default |
-| - | - | - | - |
-| **inputType(text)** | text, date, etc | No | "text" |
-| **fullWidth(boolean)** | increase size of field | No | false |
-| **placeholder(text)** | the new item input text | No | "Add a new item" |
-| **listFirst()**| move form after the list  | No | false |
-| **deleteButtonValue(html)** | value for delete button | No | "x" |
-| **createButtonValue(html)** | value for create button | No | "Add" |
-
 ### Validation
-
+Use Laravel's built in [array validation](https://laravel.com/docs/5.7/validation#validating-arrays)
 ```php
-
 Items::make('Emails')->rules([
     'emails.*' => 'email|min:10',
 ]),
 ```
 
-### Sidenotes
+### Additional options 
+
+| function | description | required | default |
+| - | - | - | - |
+| `inputType(text)` | text, date, etc | No | "text" |
+| `fullWidth(boolean)` | increase size of field | No | false |
+| `placeholder(text)` | the new item input text | No | "Add a new item" |
+| `listFirst()`| move form after the list  | No | false |
+| `deleteButtonValue(html)` | value for delete button | No | "x" |
+| `createButtonValue(html)` | value for create button | No | "Add" |
+
+### Array processing
 
 Use the array to perform other actions
 
