@@ -35,6 +35,17 @@ Items::make('Emails')->values($this->emails),
 | **deleteButtonValue(html)** | value for delete button | No | "x" |
 | **createButtonValue(html)** | value for create button | No | "Add" |
 
+### Validation
+
+```php
+
+Items::make('Emails')->values($this->emails)->rules([
+    'emails.*' => 'email|min:10',
+]),
+```
+
+![validation](https://user-images.githubusercontent.com/29180903/51055617-54a36d00-15ae-11e9-86d2-b8a2b14e5d5a.png)
+
 ### Sidenotes
 
 
