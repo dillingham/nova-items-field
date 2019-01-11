@@ -1,5 +1,5 @@
 <template>
-    <default-field :field="field" :errors="errors">
+    <default-field :field="field" :errors="errors" :full-width-content="field.fullWidth">
         <template slot="field" class="nova-items-field">
             <div class="nova-items-field-input-wrapper flex border border-40 p-4" v-if="field.listFirst == false">
                 <input 

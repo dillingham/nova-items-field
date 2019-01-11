@@ -10,6 +10,7 @@ class Items extends Field
     public $component = 'nova-items-field';
     public $placeholder = "Add a new item";
     public $inputType = 'text';
+    public $fullWidth = false;
     public $createButtonValue = "Add";
     public $deleteButtonValue = "x";
     public $listFirst = false;
@@ -22,6 +23,7 @@ class Items extends Field
             'items' => $this->items,
             'listFirst' => $this->listFirst,
             'inputType' => $this->inputType,
+            'fullWidth' => $this->fullWidth,
             'placeholder' => $this->placeholder,
             'createButtonValue' => $this->createButtonValue,
             'deleteButtonValue' => $this->deleteButtonValue,
@@ -40,6 +42,13 @@ class Items extends Field
     public function inputType($inputType)
     {
         $this->inputType = $inputType;
+        
+        return $this;
+    }
+
+    public function fullWidth($fullWidth = true)
+    {
+        $this->fullWidth = $fullWidth;
         
         return $this;
     }
