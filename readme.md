@@ -80,5 +80,4 @@ function saving($user)
 
 ### Feature Todo
 
-- [ ] Laravel array validation
 - [ ] Sortable / draggable items
