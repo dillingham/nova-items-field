@@ -6,8 +6,7 @@
 
 Simple Nova field for flat array inputs
 
-
-![form](https://user-images.githubusercontent.com/29180903/50990350-cf518700-14df-11e9-8be0-bc7f5100b6f4.png)
+![laravel-nova-array-input-field](https://user-images.githubusercontent.com/29180903/51056356-99300800-15b0-11e9-8084-3c2df5655dc2.png)
 
 ### Installation
 ```
@@ -39,12 +38,10 @@ Items::make('Emails')->values($this->emails),
 
 ```php
 
-Items::make('Emails')->values($this->emails)->rules([
+Items::make('Emails')->rules([
     'emails.*' => 'email|min:10',
 ]),
 ```
-
-![validation](https://user-images.githubusercontent.com/29180903/51055617-54a36d00-15ae-11e9-86d2-b8a2b14e5d5a.png)
 
 ### Sidenotes
 
