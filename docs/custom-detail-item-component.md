@@ -13,7 +13,7 @@ Nova.booting((Vue, router, store) => {
 and tell the field which component to render the detail item with:
 
 ```php
-    Items:make('Emails')->detailItemComponent('custom-output-component'),
+Items:make('Emails')->detailItemComponent('custom-output-component'),
 ```
 
 and customize the design however you want.

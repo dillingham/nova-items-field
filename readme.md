@@ -49,7 +49,7 @@ Items::make('Emails')->rules([
 | `->placeholder($value)` | the new item input text | "Add a new item" |
 | `->deleteButtonValue($value)` | value for delete button | "x" |
 | `->createButtonValue($value)` | value for create button | "Add" |
-| `detailItemComponent($name)` | [choose output component](custom-detail-item-component.md) | `<p></p>` |
+| `->detailItemComponent($name)` | [choose output component](https://github.com/dillingham/nova-items-field/custom-detail-item-component.md) | `<p></p>` |
 
 ### Array processing
 
