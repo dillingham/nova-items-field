@@ -41,7 +41,7 @@ Items::make('Emails')->rules([
 ### Additional options 
 
 | function | description | default |
-| - | - | - | - |
+| - | - | - |
 | `->draggable()` | turn on drag/drop sorting | false |
 | `->fullWidth()` | increase the width of field area | false |
 | `->listFirst()`| move add new to the bottom  | false |
