@@ -18,7 +18,7 @@ Items::make('People')
 
 Futher down the line maybe declairing input types too
 
-```
+```php
 Items::make('People')
     ->fullWidth()
     ->keys([
@@ -32,7 +32,7 @@ Items::make('People')
 
 Maybeeeee one day, probably not :)
 
-```
+```php
 Items::make('People')
     ->keys([
         'user_id' => BelongsTo::make('User'),
