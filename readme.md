@@ -40,15 +40,15 @@ Items::make('Emails')->rules([
 
 ### Additional options 
 
-| function | description | required | default |
+| function | description | default |
 | - | - | - | - |
-| `draggable(boolean)` | turn on drag/drop sorting | No | false |
-| `fullWidth(boolean)` | increase size of field | No | false |
-| `placeholder(text)` | the new item input text | No | "Add a new item" |
-| `listFirst()`| move form after the list  | No | false |
-| `deleteButtonValue(html)` | value for delete button | No | "x" |
-| `createButtonValue(html)` | value for create button | No | "Add" |
-| `inputType(text)` | text, date, etc | No | "text" |
+| `->draggable()` | turn on drag/drop sorting | false |
+| `->fullWidth()` | increase the width of field area | false |
+| `->listFirst()`| move add new to the bottom  | false |
+| `->placeholder($value)` | the new item input text | "Add a new item" |
+| `->deleteButtonValue($value)` | value for delete button | "x" |
+| `->createButtonValue($value)` | value for create button | "Add" |
+| `->inputType(text)` | text, date, etc | "text" |
 
 ### Array processing
 
@@ -66,7 +66,3 @@ function saving($user)
     }
 }
 ```
-
-### Feature Todo
-
-- [ ] Sortable / draggable items
