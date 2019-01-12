@@ -10,30 +10,37 @@
                 />
                 <a @click="addItem" class="btn btn-default btn-primary ml-3 cursor-pointer" v-html="field.createButtonValue"/>
             </div>
-            <ul v-if="items.length" :id="field.attribute" class="nova-items-field-input-items list-reset border border-40 p-4 pb-0">
-                <li 
+            <ul v-if="items.length" :id="field.attribute" class="nova-items-field-input-items list-reset border border-40">
+                <draggable v-model="items" :options="{ disabled: field.draggable == false, handle: '.sortable-handle' }">
+                <li    
                     v-for="(item, index) in items" 
                     :key="field.attribute + '.' + index" 
+                    class="p-4 pb-0"
                 >
+                    
                     <div class="nova-items-field-input-wrapper-item flex py-1 pb-4">
-                    <input 
-                        :value="item" 
-                        :type="field.inputType"
-                        v-on:keyup="updateItem(index, $event)"
-                        :name="field.name + '['+ index +']'" 
-                        :class="{'border-danger': hasErrors(field.attribute + '.' + index)}"
-                        class="flex-1 form-control form-input form-input-bordered"
-                    >
-                    <span 
-                        @click="removeItem(index)" 
-                        class="ml-4 mr-2 font-thin text-2xl cursor-pointer hover:font-normal"
-                        v-html="field.deleteButtonValue"
-                    />
-                    </div>
-                    <div v-if="hasErrors(field.attribute + '.' + index)" class="help-text error-text -mt-2 text-danger pb-2">
-                        <p v-html="arrayErrors[field.attribute + '.' + index][0]" />
-                    </div>
-                </li>
+                        <span v-if="field.draggable" class="sortable-handle py-2 pl-0 pr-4 text-80 cursor-move">
+                            |||
+                        </span>
+                        <input 
+                            :value="item" 
+                            :type="field.inputType"
+                            v-on:keyup="updateItem(index, $event)"
+                            :name="field.name + '['+ index +']'" 
+                            :class="{'border-danger': hasErrors(field.attribute + '.' + index)}"
+                            class="flex-1 form-control form-input form-input-bordered"
+                        >
+                        <span 
+                            @click="removeItem(index)" 
+                            class="ml-4 mr-2 font-thin text-2xl cursor-pointer hover:font-normal"
+                            v-html="field.deleteButtonValue"
+                        />
+                        </div>
+                        <div v-if="hasErrors(field.attribute + '.' + index)" class="help-text error-text -mt-2 text-danger pb-2">
+                            <p v-html="arrayErrors[field.attribute + '.' + index][0]" />
+                        </div>
+                    </li>
+                </draggable>
             </ul>
              <div class="nova-items-field-input-wrapper flex border border-40 p-4"  v-if="field.listFirst">
                 <input
@@ -48,13 +55,39 @@
     </default-field>
 </template>
 
+<style scoped>
+    .sortable-chosen {
+        border: 1px solid var(--50);
+        background-color: var(--20);
+        box-shadow: 2px 2px 2px var(--40);
+        margin-left: -5px;
+    }
+    .sortable-handle {
+        -o-user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none; 
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        position: relative;
+        left: -5px;
+        top: 5px;
+    }
+</style>
+
 <script>
+import draggable from 'vuedraggable'
 import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
 export default {
     mixins: [FormField, HandlesValidationErrors],
 
     props: ['resourceName', 'resourceId', 'field'],
+
+    components: { draggable },
 
     data: function() {
         return {

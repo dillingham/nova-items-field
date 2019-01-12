@@ -42,12 +42,13 @@ Items::make('Emails')->rules([
 
 | function | description | required | default |
 | - | - | - | - |
-| `inputType(text)` | text, date, etc | No | "text" |
+| `draggable(boolean)` | turn on drag/drop sorting | No | false |
 | `fullWidth(boolean)` | increase size of field | No | false |
 | `placeholder(text)` | the new item input text | No | "Add a new item" |
 | `listFirst()`| move form after the list  | No | false |
 | `deleteButtonValue(html)` | value for delete button | No | "x" |
 | `createButtonValue(html)` | value for create button | No | "Add" |
+| `inputType(text)` | text, date, etc | No | "text" |
 
 ### Array processing
 

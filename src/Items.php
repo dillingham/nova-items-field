@@ -11,6 +11,7 @@ class Items extends Field
     public $placeholder = "Add a new item";
     public $inputType = 'text';
     public $fullWidth = false;
+    public $draggable = false;
     public $createButtonValue = "Add";
     public $deleteButtonValue = "x";
     public $listFirst = false;
@@ -23,6 +24,7 @@ class Items extends Field
             'items' => $this->items,
             'listFirst' => $this->listFirst,
             'inputType' => $this->inputType,
+            'draggable' => $this->draggable,
             'fullWidth' => $this->fullWidth,
             'placeholder' => $this->placeholder,
             'createButtonValue' => $this->createButtonValue,
@@ -60,6 +62,13 @@ class Items extends Field
     public function fullWidth($fullWidth = true)
     {
         $this->fullWidth = $fullWidth;
+        
+        return $this;
+    }
+
+    public function draggable($draggable = true)
+    {
+        $this->draggable = $draggable;
         
         return $this;
     }
