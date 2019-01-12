@@ -6,7 +6,13 @@
             </h4>
         </div> 
         <div class="w-3/4 pt-4">    
-            <component v-for="(item, index) in JSON.parse(field.value)" :item="item" :is="field.detailItemComponent" :key="index" />
+            <component 
+                :item="item"
+                :key="index" 
+                v-bind="$props" 
+                :is="field.detailItemComponent" 
+                v-for="(item, index) in JSON.parse(field.value)" 
+            />
         </div>
     </div>
 </template>
