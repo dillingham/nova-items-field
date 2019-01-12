@@ -45,10 +45,11 @@ Items::make('Emails')->rules([
 | `->draggable()` | turn on drag/drop sorting | false |
 | `->fullWidth()` | increase the width of field area | false |
 | `->listFirst()`| move add new to the bottom  | false |
+| `->inputType(text)` | text, date, etc | "text" |
 | `->placeholder($value)` | the new item input text | "Add a new item" |
 | `->deleteButtonValue($value)` | value for delete button | "x" |
 | `->createButtonValue($value)` | value for create button | "Add" |
-| `->inputType(text)` | text, date, etc | "text" |
+| `detailItemComponent($name)` | [choose output component](custom-detail-item-component.md) | `<p></p>` |
 
 ### Array processing
 

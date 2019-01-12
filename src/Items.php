@@ -15,6 +15,7 @@ class Items extends Field
     public $createButtonValue = "Add";
     public $deleteButtonValue = "x";
     public $listFirst = false;
+    public $detailItemComponent = 'detail-nova-items-field-item';
 
     public function resolve($resource, $attribute = null)
     {
@@ -29,6 +30,7 @@ class Items extends Field
             'placeholder' => $this->placeholder,
             'createButtonValue' => $this->createButtonValue,
             'deleteButtonValue' => $this->deleteButtonValue,
+            'detailItemComponent' => $this->detailItemComponent,
         ]);
     }
 
@@ -98,6 +100,13 @@ class Items extends Field
     {
         $this->createButtonValue = $createButtonValue;
         
+        return $this;
+    }
+
+    public function detailItemComponent($detailItemComponent)
+    {
+        $this->detailItemComponent = $detailItemComponent;
+
         return $this;
     }
 }
