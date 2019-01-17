@@ -49,6 +49,7 @@ Items::make('Long Text', 'attribute')->rules([
 | - | - | - |
 | `->draggable()` | turn on drag/drop sorting | false |
 | `->fullWidth()` | increase the width of field area | false |
+| `->maxHeight(pixel)` | limit the height of the list | false |
 | `->listFirst()`| move add new to the bottom  | false |
 | `->inputType(text)` | text, date, etc | "text" |
 | `->placeholder($value)` | the new item input text | "Add a new item" |
