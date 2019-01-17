@@ -10,6 +10,7 @@ class Items extends Field
     public $component = 'nova-items-field';
     public $placeholder = "Add a new item";
     public $inputType = 'text';
+    public $max = false;
     public $fullWidth = false;
     public $maxHeight = false;
     public $draggable = false;
@@ -23,6 +24,7 @@ class Items extends Field
         parent::resolve($resource, $attribute);
 
         $this->withMeta([
+            'max' => $this->max,
             'items' => $this->items,
             'listFirst' => $this->listFirst,
             'inputType' => $this->inputType,
@@ -52,6 +54,13 @@ class Items extends Field
         if (is_array($values) && count($values)) {
             $this->items = $values;
         }
+        
+        return $this;
+    }
+
+    public function max($max)
+    {
+        $this->max = $max;
         
         return $this;
     }

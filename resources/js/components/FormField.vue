@@ -1,7 +1,7 @@
 <template>
     <default-field :field="field" :full-width-content="field.fullWidth">
         <template slot="field" class="nova-items-field">
-            <div class="nova-items-field-input-wrapper flex border border-40 p-4" v-if="field.listFirst == false">
+            <div class="nova-items-field-input-wrapper flex border border-40 p-4" v-if="field.listFirst == false && ! maxReached">
                 <input 
                     v-model="newItem"
                     :type="field.inputType"
@@ -42,7 +42,7 @@
                     </li>
                 </draggable>
             </ul>
-             <div class="nova-items-field-input-wrapper flex border border-40 p-4"  v-if="field.listFirst">
+             <div class="nova-items-field-input-wrapper flex border border-40 p-4"  v-if="field.listFirst && ! maxReached">
                 <input
                     v-model="newItem"
                     :type="field.inputType"
@@ -119,7 +119,7 @@ export default {
 		addItem() {
             const item = this.newItem.trim()
             
-			if (item) {
+			if (item && ! this.maxReached) {
 				this.items.push(item)
                 this.newItem = ''
                 
@@ -153,6 +153,10 @@ export default {
             }
 
             return `max-height: ${this.field.maxHeight}px; overflow: auto;`;
+        },
+        maxReached()
+        {
+            return this.field.max !== false && this.items.length + 1 > this.field.max;
         }
     },
     watch: {

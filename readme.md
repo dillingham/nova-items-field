@@ -61,6 +61,7 @@ function saving($user)
 
 | function | description | default |
 | - | - | - |
+| `->max(number)` | limit number of items allowed | false |
 | `->draggable()` | turn on drag/drop sorting | false |
 | `->fullWidth()` | increase the width of field area | false |
 | `->maxHeight(pixel)` | limit the height of the list | false |
