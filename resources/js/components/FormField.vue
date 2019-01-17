@@ -10,15 +10,15 @@
                 />
                 <a @click="addItem" class="btn btn-default btn-primary ml-3 cursor-pointer" v-html="field.createButtonValue"/>
             </div>
-            <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset border border-40">
+            <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset border border-40 py-2">
                 <draggable v-model="items" :options="{ disabled: field.draggable == false, handle: '.sortable-handle' }">
                 <li    
                     v-for="(item, index) in items" 
                     :key="field.attribute + '.' + index" 
-                    class="p-4 pb-0"
+                    class="px-4 py-2"
                 >
                     
-                    <div class="nova-items-field-input-wrapper-item flex py-1 pb-4">
+                    <div class="nova-items-field-input-wrapper-item flex py-1">
                         <span v-if="field.draggable" class="sortable-handle py-2 pl-0 pr-4 text-80 cursor-move">
                             |||
                         </span>
