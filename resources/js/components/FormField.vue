@@ -48,6 +48,7 @@
                     :type="field.inputType"
                     :placeholder="field.placeholder"
                     class="flex-1 form-control form-input form-input-bordered"
+                    @keypress.enter.prevent="addItem"
                 />
                 <a @click="addItem" class="btn btn-default btn-primary ml-3 cursor-pointer" v-html="field.createButtonValue"/>
             </div>
