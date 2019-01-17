@@ -41,7 +41,7 @@
                             v-html="field.deleteButtonValue"
                         />
                         </div>
-                        <div v-if="hasErrors(field.attribute + '.' + index)" class="help-text error-text -mt-2 text-danger pb-2">
+                        <div v-if="hasErrors(field.attribute + '.' + index)" class="help-text error-text -mt-2 text-danger py-2">
                             <p v-html="arrayErrors[field.attribute + '.' + index][0]" />
                         </div>
                     </li>
