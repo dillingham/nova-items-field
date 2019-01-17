@@ -3,7 +3,7 @@
 [![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-items-field.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-items-field)
 [![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-items-field.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-items-field)
 
-Laravel Nova array items field with sorting & validation
+Laravel Nova array items field with sorting, validation & many [display options](https://github.com/dillingham/nova-items-field#additional-options)
 
 ![laravel-nova-array-input-field](https://user-images.githubusercontent.com/29180903/51056356-99300800-15b0-11e9-8084-3c2df5655dc2.png)
 
@@ -24,7 +24,7 @@ function fields() {
     ]
 }
 ```
-and be sure to cast the property as an array on your eloquent model
+and be sure to [cast](https://laravel.com/docs/5.7/eloquent-mutators#array-and-json-casting) the property as an array on your eloquent model
 ```php
 public $casts = [
     'emails' => 'array'
@@ -70,6 +70,6 @@ function saving($user)
 | `->placeholder($value)` | the new item input text | "Add a new item" |
 | `->deleteButtonValue($value)` | value for delete button | "x" |
 | `->createButtonValue($value)` | value for create button | "Add" |
-| `hideCreateButton()` | hide the "add" button | false |
+| `->hideCreateButton()` | hide the "add" button | false |
 
 
