@@ -43,6 +43,20 @@ Items::make('Long Text', 'attribute')->rules([
     'attribute.*' => 'email|min:10',
 ]),
 ```
+### Array processing
+
+Use the array to perform other actions by making an [observer](https://nova.laravel.com/docs/1.0/resources/#resource-events)
+
+```php
+function saving($user)
+{
+    foreach($user->emails as $email)
+    {
+        //
+    }
+}
+```
+
 ### Additional options 
 
 | function | description | default |
@@ -56,19 +70,4 @@ Items::make('Long Text', 'attribute')->rules([
 | `->deleteButtonValue($value)` | value for delete button | "x" |
 | `->createButtonValue($value)` | value for create button | "Add" |
 
-### Array processing
 
-Use the array to perform other actions
-
-- make an [observer](https://nova.laravel.com/docs/1.0/resources/#resource-events)
-- handle the array manually
-
-```php
-function saving($user)
-{
-    foreach($user->emails as $email)
-    {
-        //
-    }
-}
-```
