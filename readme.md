@@ -37,7 +37,12 @@ Items::make('Emails')->rules([
     'emails.*' => 'email|min:10',
 ]),
 ```
-
+Manually setting the attribute may be needed in some cases.
+```php
+Items::make('Long Text', 'attribute')->rules([
+    'attribute.*' => 'email|min:10',
+]),
+```
 ### Additional options 
 
 | function | description | default |
