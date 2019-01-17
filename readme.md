@@ -5,7 +5,7 @@
 
 Laravel Nova array items field with sorting, validation & many [display options](https://github.com/dillingham/nova-items-field#additional-options)
 
-![laravel-nova-array-input-field](https://user-images.githubusercontent.com/29180903/51056356-99300800-15b0-11e9-8084-3c2df5655dc2.png)
+![nova-array-input-field](https://user-images.githubusercontent.com/29180903/51337942-7d1be300-1a56-11e9-84fa-66f5b285c279.png)
 
 ### Installation
 ```
