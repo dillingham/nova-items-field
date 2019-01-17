@@ -70,5 +70,6 @@ function saving($user)
 | `->placeholder($value)` | the new item input text | "Add a new item" |
 | `->deleteButtonValue($value)` | value for delete button | "x" |
 | `->createButtonValue($value)` | value for create button | "Add" |
+| `hideCreateButton()` | hide the "add" button | false |
 
 

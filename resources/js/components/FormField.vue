@@ -8,7 +8,12 @@
                     :placeholder="field.placeholder"
                     class="flex-1 form-control form-input form-input-bordered"
                 />
-                <a @click="addItem" class="btn btn-default btn-primary ml-3 cursor-pointer" v-html="field.createButtonValue"/>
+                <a 
+                    @click="addItem" 
+                    v-html="field.createButtonValue"
+                    v-if="field.hideCreateButton == false" 
+                    class="btn btn-default btn-primary ml-3 cursor-pointer" 
+                />
             </div>
             <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset border border-40 py-2">
                 <draggable v-model="items" :options="{ disabled: field.draggable == false, handle: '.sortable-handle' }">
@@ -50,7 +55,12 @@
                     class="flex-1 form-control form-input form-input-bordered"
                     @keypress.enter.prevent="addItem"
                 />
-                <a @click="addItem" class="btn btn-default btn-primary ml-3 cursor-pointer" v-html="field.createButtonValue"/>
+                <a 
+                    @click="addItem" 
+                    v-html="field.createButtonValue"
+                    v-if="field.hideCreateButton == false" 
+                    class="btn btn-default btn-primary ml-3 cursor-pointer" 
+                />
             </div>
         </template>
     </default-field>

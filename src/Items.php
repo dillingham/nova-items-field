@@ -14,6 +14,7 @@ class Items extends Field
     public $fullWidth = false;
     public $maxHeight = false;
     public $draggable = false;
+    public $hideCreateButton = false;
     public $createButtonValue = "Add";
     public $deleteButtonValue = "x";
     public $listFirst = false;
@@ -32,6 +33,7 @@ class Items extends Field
             'fullWidth' => $this->fullWidth,
             'maxHeight' => $this->maxHeight,
             'placeholder' => $this->placeholder,
+            'hideCreateButton' => $this->hideCreateButton,
             'createButtonValue' => $this->createButtonValue,
             'deleteButtonValue' => $this->deleteButtonValue,
             'detailItemComponent' => $this->detailItemComponent,
@@ -61,6 +63,13 @@ class Items extends Field
     public function max($max)
     {
         $this->max = $max;
+        
+        return $this;
+    }
+
+    public function hideCreateButton($hideCreateButton = true)
+    {
+        $this->hideCreateButton = $hideCreateButton;
         
         return $this;
     }
