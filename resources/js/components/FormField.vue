@@ -10,7 +10,7 @@
                 />
                 <a @click="addItem" class="btn btn-default btn-primary ml-3 cursor-pointer" v-html="field.createButtonValue"/>
             </div>
-            <ul v-if="items.length" :id="field.attribute" class="nova-items-field-input-items list-reset border border-40">
+            <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset border border-40">
                 <draggable v-model="items" :options="{ disabled: field.draggable == false, handle: '.sortable-handle' }">
                 <li    
                     v-for="(item, index) in items" 
@@ -121,7 +121,13 @@ export default {
             
 			if (item) {
 				this.items.push(item)
-				this.newItem = ''
+                this.newItem = ''
+                
+                this.$nextTick(() => {
+                    if(this.field.maxHeight){
+                        this.$refs.novaitemslist.scrollTop = this.$refs.novaitemslist.scrollHeight;
+                    }
+                })
 			}
         },
 
@@ -138,6 +144,16 @@ export default {
         {
             return this.arrayErrors.hasOwnProperty(key);
 		}
+    },
+    computed: {
+        maxHeight()
+        {
+            if(this.field.maxHeight == false) {
+                return '';
+            }
+
+            return `max-height: ${this.field.maxHeight}px; overflow: auto;`;
+        }
     },
     watch: {
         'items': {

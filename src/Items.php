@@ -11,6 +11,7 @@ class Items extends Field
     public $placeholder = "Add a new item";
     public $inputType = 'text';
     public $fullWidth = false;
+    public $maxHeight = false;
     public $draggable = false;
     public $createButtonValue = "Add";
     public $deleteButtonValue = "x";
@@ -27,6 +28,7 @@ class Items extends Field
             'inputType' => $this->inputType,
             'draggable' => $this->draggable,
             'fullWidth' => $this->fullWidth,
+            'maxHeight' => $this->maxHeight,
             'placeholder' => $this->placeholder,
             'createButtonValue' => $this->createButtonValue,
             'deleteButtonValue' => $this->deleteButtonValue,
@@ -65,6 +67,13 @@ class Items extends Field
     {
         $this->fullWidth = $fullWidth;
         
+        return $this;
+    }
+
+    public function maxHeight($maxHeight)
+    {
+        $this->maxHeight = $maxHeight;
+
         return $this;
     }
 
