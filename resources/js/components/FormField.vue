@@ -7,6 +7,7 @@
                     :type="field.inputType"
                     :placeholder="field.placeholder"
                     autocomplete="new-password"
+                    @keydown.enter.prevent="addItem"
                     class="flex-1 form-control form-input form-input-bordered"
                 />
                 <a
