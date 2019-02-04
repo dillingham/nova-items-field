@@ -14,7 +14,7 @@
                     @click="addItem"
                     v-html="field.createButtonValue"
                     v-if="field.hideCreateButton == false"
-                    class="btn btn-default btn-primary ml-3 cursor-pointer"
+                    class="btn btn-default btn-primary ml-3 cursor-pointer font-sans"
                 />
             </div>
             <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset border border-40 py-2">
@@ -40,7 +40,8 @@
                         >
                         <span
                             @click="removeItem(index)"
-                            class="ml-4 mr-2 font-thin text-2xl cursor-pointer hover:font-normal"
+                            style="font-size: 32px;"
+                            class="ml-4 mr-2 font-thin cursor-pointer hover:font-normal"
                             v-html="field.deleteButtonValue"
                         />
                         </div>
@@ -116,13 +117,13 @@ export default {
 
 
         setInitialValue() {
-            this.value = this.field.value || '';
-            this.items = this.field.value;
+            this.value = this.field.value || [];
+            this.items = this.field.value || [];
         },
 
 
         fill(formData) {
-            formData.append(this.field.attribute, this.value || '')
+            formData.append(this.field.attribute, this.value || [])
         },
 
 		addItem() {
