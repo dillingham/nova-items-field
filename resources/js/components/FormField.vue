@@ -2,41 +2,41 @@
     <default-field :field="field" :full-width-content="field.fullWidth">
         <template slot="field" class="nova-items-field">
             <div class="nova-items-field-input-wrapper flex border border-40 p-4" v-if="field.listFirst == false && ! maxReached">
-                <input 
+                <input
                     v-model="newItem"
                     :type="field.inputType"
                     :placeholder="field.placeholder"
                     class="flex-1 form-control form-input form-input-bordered"
                 />
-                <a 
-                    @click="addItem" 
+                <a
+                    @click="addItem"
                     v-html="field.createButtonValue"
-                    v-if="field.hideCreateButton == false" 
-                    class="btn btn-default btn-primary ml-3 cursor-pointer" 
+                    v-if="field.hideCreateButton == false"
+                    class="btn btn-default btn-primary ml-3 cursor-pointer"
                 />
             </div>
             <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset border border-40 py-2">
                 <draggable v-model="items" :options="{ disabled: field.draggable == false, handle: '.sortable-handle' }">
-                <li    
-                    v-for="(item, index) in items" 
-                    :key="field.attribute + '.' + index" 
+                <li
+                    v-for="(item, index) in items"
+                    :key="field.attribute + '.' + index"
                     class="px-4 py-2"
                 >
-                    
+
                     <div class="nova-items-field-input-wrapper-item flex py-1">
                         <span v-if="field.draggable" class="sortable-handle py-2 pl-0 pr-4 text-80 cursor-move">
                             |||
                         </span>
-                        <input 
-                            :value="item" 
+                        <input
+                            :value="item"
                             :type="field.inputType"
                             v-on:keyup="updateItem(index, $event)"
-                            :name="field.name + '['+ index +']'" 
+                            :name="field.name + '['+ index +']'"
                             :class="{'border-danger': hasErrors(field.attribute + '.' + index)}"
                             class="flex-1 form-control form-input form-input-bordered"
                         >
-                        <span 
-                            @click="removeItem(index)" 
+                        <span
+                            @click="removeItem(index)"
                             class="ml-4 mr-2 font-thin text-2xl cursor-pointer hover:font-normal"
                             v-html="field.deleteButtonValue"
                         />
@@ -55,11 +55,11 @@
                     class="flex-1 form-control form-input form-input-bordered"
                     @keypress.enter.prevent="addItem"
                 />
-                <a 
-                    @click="addItem" 
+                <a
+                    @click="addItem"
                     v-html="field.createButtonValue"
-                    v-if="field.hideCreateButton == false" 
-                    class="btn btn-default btn-primary ml-3 cursor-pointer" 
+                    v-if="field.hideCreateButton == false"
+                    class="btn btn-default btn-primary ml-3 cursor-pointer"
                 />
             </div>
         </template>
@@ -77,7 +77,7 @@
         -o-user-select: none;
         -moz-user-select: none;
         -webkit-user-select: none;
-        user-select: none; 
+        user-select: none;
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
         -o-transform: rotate(90deg);
@@ -111,17 +111,12 @@ export default {
 
     methods: {
 
+
         setInitialValue() {
-
             this.value = this.field.value || '';
-
-            this.$nextTick(() => {
-                this.items = (this.value)
-                    ? JSON.parse(this.value)
-                    : [];
-            });
-            
+            this.items = this.field.value;
         },
+
 
         fill(formData) {
             formData.append(this.field.attribute, this.value || '')
@@ -129,11 +124,11 @@ export default {
 
 		addItem() {
             const item = this.newItem.trim()
-            
+
 			if (item && ! this.maxReached) {
 				this.items.push(item)
                 this.newItem = ''
-                
+
                 this.$nextTick(() => {
                     if(this.field.maxHeight){
                         this.$refs.novaitemslist.scrollTop = this.$refs.novaitemslist.scrollHeight;
@@ -150,7 +145,7 @@ export default {
 		removeItem (index) {
 			this.items.splice(index, 1)
         },
-    
+
         hasErrors(key)
         {
             return this.arrayErrors.hasOwnProperty(key);
