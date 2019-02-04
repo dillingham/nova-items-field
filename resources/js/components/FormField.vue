@@ -6,6 +6,7 @@
                     v-model="newItem"
                     :type="field.inputType"
                     :placeholder="field.placeholder"
+                    autocomplete="new-password"
                     class="flex-1 form-control form-input form-input-bordered"
                 />
                 <a
@@ -32,6 +33,7 @@
                             :type="field.inputType"
                             v-on:keyup="updateItem(index, $event)"
                             :name="field.name + '['+ index +']'"
+                            autocomplete="new-password"
                             :class="{'border-danger': hasErrors(field.attribute + '.' + index)}"
                             class="flex-1 form-control form-input form-input-bordered"
                         >
