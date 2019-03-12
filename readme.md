@@ -71,5 +71,6 @@ function saving($user)
 | `->deleteButtonValue($value)` | value for delete button | "x" |
 | `->createButtonValue($value)` | value for create button | "Add" |
 | `->hideCreateButton()` | hide the "add" button | false |
+| `->keepSaved()` | keep already saved items as read-only | false |
 
 

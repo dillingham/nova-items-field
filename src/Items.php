@@ -18,6 +18,7 @@ class Items extends Field
     public $createButtonValue = "Add";
     public $deleteButtonValue = "x";
     public $listFirst = false;
+    public $keepSaved = false;
     public $detailItemComponent = 'detail-nova-items-field-item';
 
     public function resolve($resource, $attribute = null)
@@ -40,6 +41,7 @@ class Items extends Field
             'hideCreateButton' => $this->hideCreateButton,
             'createButtonValue' => $this->createButtonValue,
             'deleteButtonValue' => $this->deleteButtonValue,
+            'keepSaved' => $this->keepSaved,
             'detailItemComponent' => $this->detailItemComponent,
         ]);
     }
@@ -130,6 +132,13 @@ class Items extends Field
     public function createButtonValue($createButtonValue)
     {
         $this->createButtonValue = $createButtonValue;
+
+        return $this;
+    }
+
+    public function keepSaved($keepSaved = true)
+    {
+        $this->keepSaved = $keepSaved;
 
         return $this;
     }

@@ -26,19 +26,21 @@
                 >
 
                     <div class="nova-items-field-input-wrapper-item flex py-1">
-                        <span v-if="field.draggable" class="sortable-handle py-2 pl-0 pr-4 text-80 cursor-move">
+                        <span v-if="field.draggable && (! field.keepSaved || (field.keepSaved && ! savedItems.includes(item)))" class="sortable-handle py-2 pl-0 pr-4 text-80 cursor-move">
                             |||
                         </span>
                         <input
                             :value="item"
                             :type="field.inputType"
-                            v-on:keyup="updateItem(index, $event)"
+                            v-on:keyup="(! field.keepSaved || (field.keepSaved && ! savedItems.includes(item))) ? updateItem(index, $event) : null"
                             :name="field.name + '['+ index +']'"
                             autocomplete="new-password"
                             :class="{'border-danger': hasErrors(field.attribute + '.' + index)}"
                             class="flex-1 form-control form-input form-input-bordered"
+                            :readonly="field.keepSaved && savedItems.includes(item)"
                         >
                         <span
+                            v-if="! field.keepSaved || (field.keepSaved && ! savedItems.includes(item))"
                             @click="removeItem(index)"
                             style="font-size: 32px;"
                             class="ml-4 mr-2 font-thin cursor-pointer hover:font-normal"
@@ -108,6 +110,7 @@ export default {
         return {
             value: '',
             items: [],
+            savedItems: [],
             newItem: '',
             arrayErrors: []
         }
@@ -119,6 +122,7 @@ export default {
         setInitialValue() {
             this.value = this.field.value || [];
             this.items = this.field.value || [];
+            this.savedItems = _.clone(this.field.value, true) || [];
         },
 
 
