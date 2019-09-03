@@ -57,6 +57,12 @@ function saving($user)
 }
 ```
 
+### Replace item vue component
+
+Here's a brief walkthrough to customize the vue item
+
+https://github.com/dillingham/nova-items-field/issues/10#issuecomment-527315057
+
 ### Additional options 
 
 | function | description | default |
