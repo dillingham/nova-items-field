@@ -59,9 +59,9 @@ function saving($user)
 
 ### Replace item vue component
 
-Here's a brief walkthrough to customize the vue item
+Here's a brief walkthrough to customize the vue item - [view](https://github.com/dillingham/nova-items-field/issues/10#issuecomment-527315057)
 
-https://github.com/dillingham/nova-items-field/issues/10#issuecomment-527315057
+
 
 ### Additional options 
 
