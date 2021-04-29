@@ -1,5 +1,5 @@
 <template>
-    <default-field :field="field" :full-width-content="field.fullWidth">
+    <default-field :field="field" :full-width-content="field.fullWidth" :show-help-text="showHelpText">
         <template slot="field" class="nova-items-field">
             <div class="nova-items-field-input-wrapper flex border border-40 p-4" v-if="field.listFirst == false && ! maxReached">
                 <input
