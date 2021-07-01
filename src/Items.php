@@ -24,7 +24,7 @@ class Items extends Field
     {
         parent::resolve($resource, $attribute);
 
-        $this->fillUsing(function($request, $model, $attribute, $requestAttribute) {
+        if (is_null($this->fillCallback)) $this->fillUsing(function($request, $model, $attribute, $requestAttribute) {
             $model->$attribute = $this->isNullValue($request->$attribute) ? null : json_decode($request->$attribute, true);
         });
 
