@@ -63,7 +63,7 @@ Here's a brief walkthrough to customize the vue item - [view](https://github.com
 
 
 
-### Additional options 
+### Additional options
 
 | function | description | default |
 | - | - | - |
@@ -77,6 +77,8 @@ Here's a brief walkthrough to customize the vue item - [view](https://github.com
 | `->deleteButtonValue($value)` | value for delete button | "x" |
 | `->createButtonValue($value)` | value for create button | "Add" |
 | `->hideCreateButton()` | hide the "add" button | false |
+| `->allowPastingMultiple()` | handle pasting multiple items at once | false |
+| `->trimCharacters([])` | trim characters from each item | [] |
 
 
 ---
@@ -87,4 +89,4 @@ Hi 👋, Im Brian Dillingham, creator of this Nova package [and others](https://
 
 Hope you find it useful. Feel free to reach out with feedback.
 
-Follow me on twitter: [@im_brian_d](https://twitter.com/im_brian_d) 
+Follow me on twitter: [@im_brian_d](https://twitter.com/im_brian_d)

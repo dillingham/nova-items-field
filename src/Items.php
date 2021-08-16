@@ -19,6 +19,8 @@ class Items extends Field
     public $deleteButtonValue = "x";
     public $listFirst = false;
     public $detailItemComponent = 'detail-nova-items-field-item';
+    public $allowPastingMultiple = false;
+    public $trimCharacters = [];
 
     public function resolve($resource, $attribute = null)
     {
@@ -41,6 +43,8 @@ class Items extends Field
             'createButtonValue' => $this->createButtonValue,
             'deleteButtonValue' => $this->deleteButtonValue,
             'detailItemComponent' => $this->detailItemComponent,
+            'allowPastingMultiple' => $this->allowPastingMultiple,
+            'trimCharacters' => $this->trimCharacters,
         ]);
     }
 
@@ -137,6 +141,20 @@ class Items extends Field
     public function detailItemComponent($detailItemComponent)
     {
         $this->detailItemComponent = $detailItemComponent;
+
+        return $this;
+    }
+
+    public function allowPastingMultiple($bool = true)
+    {
+        $this->allowPastingMultiple = $bool;
+
+        return $this;
+    }
+
+    public function trimCharacters($array = [])
+    {
+        $this->trimCharacters = $array;
 
         return $this;
     }
