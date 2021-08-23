@@ -64,6 +64,7 @@
                     class="flex-1 form-control form-input form-input-bordered"
                     @keypress.enter.prevent="addItem"
                     @paste="handlePaste"
+                    @blur="addItem"
                 />
                 <a
                     @click="addItem"
