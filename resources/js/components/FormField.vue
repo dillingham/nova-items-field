@@ -118,7 +118,7 @@ export default {
 
         setInitialValue() {
             this.value = this.field.value || [];
-            this.items = this.field.value || [];
+            this.items = this.field.items || [];
         },
 
 
