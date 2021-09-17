@@ -38,8 +38,8 @@ class Items extends Field
             'maxHeight' => $this->maxHeight,
             'placeholder' => $this->placeholder,
             'hideCreateButton' => $this->hideCreateButton,
-            'createButtonValue' => $this->createButtonValue,
-            'deleteButtonValue' => $this->deleteButtonValue,
+            'createButtonValue' => __($this->createButtonValue),
+            'deleteButtonValue' => __($this->deleteButtonValue),
             'detailItemComponent' => $this->detailItemComponent,
         ]);
     }
