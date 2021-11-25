@@ -33,7 +33,7 @@
                             :value="item"
                             :type="field.inputType"
                             v-on:keyup="updateItem(index, $event)"
-                            :name="field.name + '['+ index +']'"
+                            :name="field.attribute + '['+ index +']'"
                             autocomplete="new-password"
                             :class="{'border-danger': hasErrors(field.attribute + '.' + index)}"
                             class="flex-1 form-control form-input form-input-bordered"
