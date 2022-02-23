@@ -25,7 +25,7 @@ class Items extends Field
         parent::resolve($resource, $attribute);
 
         $this->fillUsing(function($request, $model, $attribute, $requestAttribute) {
-            $model->$attribute = $this->isNullValue($request->$attribute) ? null : json_decode($request->$attribute, true);
+            $model->$attribute = $this->isNullValue($request->$attribute) ? null : (!is_array($request->$attribute) ? json_decode($request->$attribute, true) : $request->$attribute);
         });
 
         $this->withMeta([
