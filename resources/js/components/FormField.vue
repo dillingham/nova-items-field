@@ -23,7 +23,7 @@
                     <template #item="{ element }">
                         <li class="py-2">
                             <div class="nova-items-field-input-wrapper-item flex py-1 gap-2">
-                                <button type="button" class="sortable-handle px-4"><Icon type="view-list" /></button>
+                                <button type="button" class="cursor-move sortable-handle px-4"><Icon type="view-list" /></button>
                                 <input
                                     :value="element"
                                     :type="currentField.inputType"
