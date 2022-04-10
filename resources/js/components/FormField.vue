@@ -1,7 +1,7 @@
 <template>
     <DefaultField :field="currentField" :full-width-content="currentField.fullWidth" :show-help-text="showHelpText">
         <template #field>
-            <div class="nova-items-field-input-wrapper flex border border-40 p-4" v-if="currentField.listFirst === false && ! maxReached">
+            <div class="nova-items-field-input-wrapper flex py-4" v-if="currentField.listFirst === false && ! maxReached">
                 <input
                     v-model="newItem"
                     :type="currentField.inputType"
@@ -18,7 +18,7 @@
                     class="ml-3 cursor-pointer shadow relative bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900 cursor-pointer rounded text-sm font-bold focus:outline-none focus:ring inline-flex items-center justify-center h-9 px-3 shadow relative bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900"
                 />
             </div>
-            <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset border border-40 py-2">
+            <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset">
                 <draggable v-model="items" :item-key="currentField.attribute + '.' + index" :options="{ disabled: currentField.draggable === false, handle: '.sortable-handle' }">
                     <template #item="{ element }">
                         <li class="py-2">
