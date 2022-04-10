@@ -1,7 +1,7 @@
 <template>
     <DefaultField :field="currentField" :full-width-content="currentField.fullWidth" :show-help-text="showHelpText">
         <template #field>
-            <div class="nova-items-field-input-wrapper flex py-4" v-if="currentField.listFirst === false && ! maxReached">
+            <div class="nova-items-field-input-wrapper flex pb-4" v-if="currentField.listFirst === false && ! maxReached">
                 <input
                     v-model="newItem"
                     :type="currentField.inputType"
