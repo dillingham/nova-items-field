@@ -20,7 +20,7 @@
             </div>
             <ul ref="novaitemslist" :style="maxHeight" v-if="items.length" class="nova-items-field-input-items list-reset">
                 <draggable v-model="items" :item-key="currentField.attribute + '.' + index" :options="{ disabled: currentField.draggable === false, handle: '.sortable-handle' }">
-                    <template #item="{ element }">
+                    <template #item="{ element, index }">
                         <li class="py-1">
                             <div class="nova-items-field-input-wrapper-item flex py-1 gap-2">
                                 <button type="button" class="cursor-move sortable-handle px-4"><Icon type="view-list" /></button>
@@ -40,9 +40,9 @@
                                     v-html="currentField.deleteButtonValue"
                                 />
                             </div>
-                            <div v-if="hasErrors(currentField.attribute + '.' + index)" class="help-text error-text -mt-2 text-danger py-2">
-                                <p v-html="arrayErrors[currentField.attribute + '.' + index][0]" />
-                            </div>
+                            <HelpText class="mt-2 help-text-error" v-if="hasErrors(currentField.attribute + '.' + index)">
+                              {{ arrayErrors[currentField.attribute + '.' + index][0] }}
+                            </HelpText>
                         </li>
                     </template>
                 </draggable>
@@ -115,7 +115,7 @@ export default {
         },
 
         updateItem(index, event) {
-            this.$set(this.items, index, event.target.value)
+            this.items[index] = event.target.value
         },
 
 		removeItem (index) {
@@ -148,7 +148,7 @@ export default {
         'errors': {
             handler: function (errors) {
                 if(errors.errors.hasOwnProperty(this.field.attribute)) {
-                    this.arrayErrors = errors.errors[this.field.attribute][0]
+                    this.arrayErrors = JSON.parse(errors.errors[this.field.attribute][0])
                 }
             },
             deep: true

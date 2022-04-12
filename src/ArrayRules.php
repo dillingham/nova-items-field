@@ -3,6 +3,7 @@
 namespace NovaItemsField;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class ArrayRules implements Rule
 {
@@ -28,11 +29,8 @@ class ArrayRules implements Rule
     public function passes($attribute, $value)
     {
         $input = [$attribute => json_decode($value)];
-
-        $validator = \Validator::make($input, $this->rules, [], [ "$attribute.*" => 'input']);
-
-        $this->message = $validator->errors();
-
+        $validator = Validator::make($input, $this->rules, [], [ "$attribute.*" => 'input']);
+        $this->message = $validator->errors()->toJson();
         return $validator->passes();
     }
 
